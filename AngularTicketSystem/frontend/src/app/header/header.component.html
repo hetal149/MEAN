@@ -1,0 +1,27 @@
+<header>
+    <div class="navbar navbar-dark shadow-sm bg-custom-2">
+        <div class="navbar-brand align-item-center d-flex">
+            <div>
+                <strong>Ticketting</strong>
+            </div>
+
+        </div>
+        
+        <div *ngIf="this.AuthService.isloggedin === false; else issignedin"  >
+            <button routerLink="signin" class="btn btn-signIn">Sign In</button>
+            <button routerLink="signup" class="btn btn-signUp" style="margin: 0 10px;">Sign Up</button>
+        </div>
+
+        <ng-template #issignedin>
+            <div class="align-item-center d-flex">
+                <span>{{AuthService.user.name}}</span>
+              <button type="button" routerLink="ticket" class="btn btn-signOut" data-toggle="modal" data-target="#exampleModal">
+                Create Ticket
+              </button>
+                <button class="btn btn-signOut" (click)="onLogoutClick()">Sign Out</button>
+            </div>
+        </ng-template>
+
+        
+    </div>
+</header>

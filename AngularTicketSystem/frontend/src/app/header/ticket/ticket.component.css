@@ -1,0 +1,110 @@
+.example-container {
+    position: relative;
+  }
+  
+  .example-table-container {
+    position: relative;
+    min-height: 200px;
+    max-height: 400px;
+    overflow: auto;
+  }
+  
+  table {
+    width: 100%;
+  }
+  button{
+    border-radius: 30px;
+
+  }
+  button:hover{
+    transition: .2s ease-out;
+    transform: scale(1.20);
+   
+  }
+  .btn{
+    font-weight:bold;
+    margin-top:20px;
+    background-color: rgb(21, 82, 197);
+    color: white;
+  }
+ 
+  
+  .example-loading-shade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 56px;
+    right: 0;
+    background: rgb(21, 82, 197);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .example-rate-limit-reached {
+    max-width: 360px;
+    text-align: center;
+  }
+  
+  /* Column Widths */
+  .mat-column-number,
+  .mat-column-state {
+    max-width: 64px;
+  }
+  
+  .mat-column-created {
+    max-width: 124px;
+  }
+  
+  
+  th.mat-sort-header-sorted {
+      color: black;
+    }
+  
+  .formBg {
+    padding: 20px;
+    
+    background: rgba(21, 83, 197, 0.598);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(43,91,162,0.25);
+  }
+  
+  .formDesc {
+    resize: none;
+  }
+  .make-gold {
+    background: rgba(243, 133, 133, 0.272);
+    -webkit-backdrop-filter: blur(9px);
+    backdrop-filter: blur(9px);
+    border: 1px solid rgba(223,198,198,0.25);
+  }
+  .page{
+    background: rgb(75, 5, 90);
+    color: #fff;
+    -webkit-backdrop-filter: blur(9px);
+    backdrop-filter: blur(9px);
+    border: 1px solid rgba(171,170,214,0.25);
+  }
+  
+  .paginator{
+    
+    
+    margin-bottom: 10px;
+    text-decoration: underline;
+    
+    margin-left: 45%;
+    /* box-shadow: inset 0px 0px 6px rgba(0,0,0); */
+  }
+  
+  .filter{
+    font-style:bold;
+    font-size: large;
+    
+    text-decoration: underline;
+    
+  }
+  
+  
+  

@@ -1,0 +1,19 @@
+div {
+    height: 90vh;
+    overflow: hidden;
+    // width: auto;
+     background: linear-gradient(to bottom, rgba(11, 11, 11, 0.52), 
+    rgba(15, 14, 14, 0.73)),url('../../assets/images/reg.jpg');
+    background-size: cover;
+} 
+
+h1 {
+    width: 100v;
+    color: rgb(248, 233, 248);
+    text-align: center;
+    line-height: 600px;
+    font-weight: bold;
+    font-style: italic;
+    text-shadow: 7px 5px 16px rgb(33, 105, 160);
+    font-size:60px;
+}
