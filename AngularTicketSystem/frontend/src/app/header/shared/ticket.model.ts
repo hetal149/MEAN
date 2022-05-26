@@ -1,7 +1,6 @@
 export class Ticket {
     _id:string;
     ticket_desc:String;
-    empid:String;
     empname:String;
     creator:String;
     createdAt:String;

@@ -20,7 +20,7 @@ export class AuthService {
     const headers = new HttpHeaders({
       'Content-Type':  'application/json'
     });
-    return this.http.post("http://localhost:5000/user/signin", loginData, {headers: headers});
+    return this.http.post("http://localhost:5000/users/login", loginData, {headers: headers});
   }
 
   storeUserData(token:any, result:any) {
@@ -34,8 +34,6 @@ export class AuthService {
 
   logout() {
     this.authToken = null;
-
-   
     localStorage.clear();
   }
 

@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 import Ticket from "../models/tickets.js";
 
 import moment from "moment";
-export const createTicket = async (req, res) => {
+export const addTicket = async (req, res) => {
   const { empid, ticket_desc, creator, empname } = req.body;
 
   const newTicket = new Ticket({
@@ -74,9 +74,10 @@ export const deleteTicket = async (req, res) => {
     Resolved: true,
     creator,
     empid,
-    ticket_desc,
+    ticket_desc, 
+    
     DeletedAt:  moment().toISOString(),
-    _id: _id,
+    _id: _id,   
   };
 
   await Ticket.findByIdAndUpdate(_id, deletedTicket, { new: true });

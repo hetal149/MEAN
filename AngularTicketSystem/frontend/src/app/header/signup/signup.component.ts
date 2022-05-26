@@ -31,7 +31,7 @@ export class SignupComponent implements OnInit {
           this.flashMessagesService.show(res.message, { cssClass: 'alert-danger', timeout: 4500});
           this.router.navigate(['/signin']);
         }
-      });
+      }); 
     }
   ngOnInit(): void {
   }

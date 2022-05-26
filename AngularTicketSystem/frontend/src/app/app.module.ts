@@ -13,7 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { FlashMessagesModule } from "angular2-flash-messages";
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import {TicketComponent} from './header/ticket/ticket.component';
+import {DashComponent} from './header/dash/dash.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JwPaginationModule } from 'jw-angular-pagination';
@@ -33,7 +33,7 @@ import { MatInputModule } from '@angular/material/input';
     HomeComponent,
     SigninComponent,
     SignupComponent,
-    TicketComponent
+    DashComponent
    
     
   ],

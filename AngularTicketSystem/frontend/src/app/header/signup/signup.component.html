@@ -8,10 +8,10 @@
         >
         <h2>Register</h2>
           <div class="form-group">
-            <label for="name">Name:</label>
+            <label for="name" class="mb-2">Name:</label>
             <input
               type="text"
-              class="form-control"
+              class="form-control mb-3"
               placeholder="Enter your name"
               id="name"
               required
@@ -19,7 +19,10 @@
               [(ngModel)]="model.name"
               name="name"
               #name="ngModel"
+              aria-describedby="name"
             />
+            
+           
             <div
               *ngIf="name.invalid && (name.dirty || name.touched)"
               class="alert alert-danger"

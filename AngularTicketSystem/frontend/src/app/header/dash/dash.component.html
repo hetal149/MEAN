@@ -34,26 +34,15 @@
               #ticketform="ngForm"
               (ngSubmit)="onSubmit(ticketform);frame.hide()"
             >
-              <h1>Add Ticket</h1>
+            
+              <h3 style="text-align:center">Add Ticket</h3>
               <input
                 type="hidden"
                 name="_id"
                 #_id="ngModel"
                 [(ngModel)]="ticketservice.selectedTicket._id"
               />
-              <div class="form-group">
-                <label for="empid" class="mb-2">Employee id</label>
-                <input
-                  name="empid"
-                  #empid="ngModel"
-                  [(ngModel)]="ticketservice.selectedTicket.empid"
-                  type="text"
-                  class="form-control mb-3"
-                  id="empid"
-                  aria-describedby="empidhelp"
-                  placeholder="Enter Employee id"
-                />
-              </div>
+       
               <div class="form-group">
                 <label for="empname" class="mb-2">Employee Name</label>
                 <input
@@ -79,8 +68,8 @@
                   placeholder="Ticket_desc"
                 ></textarea>
               </div>
-              <button type="submit" class="btn btn-dark">Submit</button>
-              <button (click)="frame.hide();onClose()" type="button" class="btn btn-dark">
+              <button type="submit" mdbBtn color="success" size="sm" outline="true" cmdbWavesEffect class="sub">Submit</button>
+              <button (click)="frame.hide();onClose()" mdbBtn size="sm" type="button" color="danger" outline="true" cmdbWavesEffect>
                 Close
               </button>
             </form>
@@ -114,17 +103,7 @@
           <td mat-cell  *matCellDef="let element">{{ element.ticket_desc }}</td>
         </ng-container>
     
-        <ng-container matColumnDef="empid">
-          <th
-            mat-header-cell
-            *matHeaderCellDef
-            mat-sort-header
-            sortActionDescription="Sort by empid"
-          >
-            Emp ID
-          </th>
-          <td mat-cell *matCellDef="let element">{{ element.empid }}</td>
-        </ng-container>
+       
     
         
         <ng-container matColumnDef="empname">
@@ -180,8 +159,7 @@
             style="margin-right: 5px;align-items: left;"
             (click)="onEdit(element);frame.show()"
               [disabled]="!(AuthService.user._id === element.creator) || element.Resolved"
-              mat-raised-button
-              color="primary"
+              mdbBtn color="success" outline="true" cmdbWavesEffect
             >
               Edit
             </button>
@@ -193,9 +171,8 @@
           <td mat-cell *matCellDef="let element">
             <button
               [disabled]="!(AuthService.user._id === element.creator) || element.Resolved"
-              mat-raised-button
-              color="warn"
               (click)="onDelete(element)"
+              mdbBtn color="danger" outline="true" cmdbWavesEffect
             >
               Resolved
             </button>

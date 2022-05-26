@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
   constructor(public AuthService:AuthService,public router: Router) {this.AuthService.user
     if(this.AuthService.loggedIn()){
       this.AuthService.isloggedin= true;
-      this.router.navigate(['home'])
+      this.router.navigate(['ticket'])
 
     }
   }

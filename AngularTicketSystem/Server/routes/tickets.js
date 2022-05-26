@@ -1,6 +1,6 @@
 import express from "express";
 import {
-  createTicket,
+  addTicket,
   getTickets,
   updateTicket,
   deleteTicket,
@@ -10,7 +10,7 @@ const router = express.Router();
 import auth from "../middleware/auth.js";
 
 router.get("/", getTickets);
-router.post("/",createTicket);
+router.post("/",addTicket);
 router.patch("/:id",updateTicket);
 router.post("/delete", deleteTicket);
 

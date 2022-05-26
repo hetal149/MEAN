@@ -15,7 +15,7 @@ export class UserService {
     const headers = new HttpHeaders({
       'Content-Type':  'application/json',
     });
-    return this.http.post("http://localhost:5000/user/signup", user, {headers: headers});
+    return this.http.post("http://localhost:5000/users/register", user, {headers: headers});
   }
 
  

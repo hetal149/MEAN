@@ -12,13 +12,13 @@ import moment from 'moment';
 
 
 @Component({
-  selector: 'app-ticket',
-  templateUrl: './ticket.component.html',
-  styleUrls: ['./ticket.component.css']
+  selector: 'app-dash',
+  templateUrl: './dash.component.html',
+  styleUrls: ['./dash.component.css']
 })
-export class TicketComponent implements OnInit {
+export class DashComponent implements OnInit {
 
-  displayedColumns = ['ticket_desc', 'empid', 'empname','createdAt','updatedAt','DeletedAt','Edit',"Delete"];
+  displayedColumns = [ 'empname','ticket_desc','createdAt','updatedAt','DeletedAt','Edit',"Delete"];
   dataSource = new MatTableDataSource<Ticket>();
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -38,7 +38,6 @@ export class TicketComponent implements OnInit {
     this.ticketservice.selectedTicket = {
       _id: '',
       ticket_desc: '',
-      empid: "",
       empname: AuthService.user.name,
       creator: AuthService.user._id,
       createdAt: '',
@@ -106,12 +105,12 @@ export class TicketComponent implements OnInit {
       this.ticketservice.selectedTicket._id=''
       this.ticketservice.selectedTicket.ticket_desc=''
       this.ticketservice.selectedTicket.empname=this.AuthService.user.name
-      this.ticketservice.selectedTicket.empid=''
+    
     }
     this.ticketservice.selectedTicket._id=''
     this.ticketservice.selectedTicket.ticket_desc=''
     this.ticketservice.selectedTicket.empname=this.AuthService.user.name
-    this.ticketservice.selectedTicket.empid=''
+ 
    
   }
   onClose(){

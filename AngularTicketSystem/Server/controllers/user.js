@@ -16,12 +16,12 @@ export const signin = async (req, res) => {
     const isPasswordCorrect = await bcrypt.compare(password, oldUser.password);
 
     if (!isPasswordCorrect) return res.json({ message: "Invalid credentials" });
-    console.log(res.json)
+  
     const token = jwt.sign({ email: oldUser.email, id: oldUser._id }, secret, { expiresIn: "1h" });
     
     res.status(200).json({ result: oldUser, token });
   } catch (err) {
-    console.log(message)
+  
     res.status(500).json({ message: "Something went wrong" });
   }
 };
@@ -46,5 +46,14 @@ export const signup = async (req, res) => {
     res.json({ message: "Something went wrong" });
     
   
+  }
+};
+
+export const getUsers = async (req, res) => {
+  try {
+    const User = await user.find().sort({Date:-1});
+    res.status(200).json(User);
+  } catch (error) {
+    res.status(404).json({ message: error.message });
   }
 };

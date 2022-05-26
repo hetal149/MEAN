@@ -37,7 +37,7 @@ export class SigninComponent implements OnInit {
         this.authService.isloggedin = true
         this.authService.user = res.result
        
-        this.router.navigate(['home']);
+        this.router.navigate(['ticket']);
       
      
         

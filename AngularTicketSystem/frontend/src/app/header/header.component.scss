@@ -7,15 +7,19 @@
 }
 
 .navbar {
-    background-image: linear-gradient(180deg, rgb(37, 174, 233), rgb(156, 31, 168));
-    height: 80px;
-    box-shadow: 13px 3px 33px black;
+   background-color:rgb(14, 7, 75);
+    height: 75px;
+    box-shadow: 13px 3px 33px rgb(0, 0, 0);
+    color: '#fff',
+   
+    
 }
 
-strong {
+p {
 
     font-size: 30px;
     font-style: italic;
+    font-family:'system-ui'
 }
 
 
@@ -34,15 +38,16 @@ span {
     padding: 12px;
     cursor: pointer;
 }
+.waves-light{
+    border-radius: 100px;
+    margin-bottom: 20px;
+}
 
 .btn {
     margin-right: 15px;
     color: #fff;
 
-    &-signIn {
-        background-color: #21a115;
-        box-shadow: 5px 5px 15px rgb(4, 16, 74);
-    }
+   
     &-signIn:hover {
         background-color: #7b0a0a;
         color: #fff;
@@ -50,11 +55,6 @@ span {
         transform: scale(1.20);
     }
 
-
-    &-signUp {
-        background-color: #21a115;
-        box-shadow: 5px 5px 15px rgb(4, 16, 74);
-    }
     &-signUp:hover {
         background-color: #7b0a0a;
         color: #fff;
@@ -62,17 +62,5 @@ span {
         transform: scale(1.20);
     }
 
-    &-cart {
-        background-color: #222831;
-
-        .badge {
-            background-color:rgb(28, 193, 39);
-        }
-    }
-
-    &-signOut {
-        background-color:rgb(13, 136, 21);
-        box-shadow: 5px 5px 15px black;
-    }
 }
 
