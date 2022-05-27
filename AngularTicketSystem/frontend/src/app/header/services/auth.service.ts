@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { User } from '../_classes/user'
-import { LoginData } from '../_classes/login-data';
+import { User } from '../classes/user'
+import { LoginData } from '../classes/login-data';
 import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'

@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { AuthService } from '../_services/auth.service';
-import { TicketService } from '../shared/ticket.service';
-import { Ticket } from '../shared/ticket.model';
+import { AuthService } from '../services/auth.service';
+import { TicketService } from '../services/ticket.service';
+import { Ticket } from '../classes/ticket.model';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort, Sort } from '@angular/material/sort';
@@ -14,11 +14,11 @@ import moment from 'moment';
 @Component({
   selector: 'app-dash',
   templateUrl: './dash.component.html',
-  styleUrls: ['./dash.component.css']
+  styleUrls: ['./dash.component.scss']
 })
 export class DashComponent implements OnInit {
 
-  displayedColumns = [ 'empname','ticket_desc','createdAt','updatedAt','DeletedAt','Edit',"Delete"];
+  displayedColumns = [ 'name','ticket_desc','createdAt','updatedAt','DeletedAt','Edit',"Delete"];
   dataSource = new MatTableDataSource<Ticket>();
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -27,6 +27,7 @@ export class DashComponent implements OnInit {
   ngOnInit(): void {
     this.resetForm();
     this.getTicketsData();
+    this.dataSource.paginator = this.paginator;
   }
  
 
@@ -38,7 +39,7 @@ export class DashComponent implements OnInit {
     this.ticketservice.selectedTicket = {
       _id: '',
       ticket_desc: '',
-      empname: AuthService.user.name,
+      name: AuthService.user.name,
       creator: AuthService.user._id,
       createdAt: '',
       updatedAt: '',
@@ -74,7 +75,7 @@ export class DashComponent implements OnInit {
   {
      
       form.value.creator=this.AuthService.user._id;
-      form.value.empname = this.AuthService.user.name;
+      form.value.name = this.AuthService.user.name;
       if (form.value._id == "" || form.value._id == null) {
  
           this.ticketservice.postTicket(form.value).subscribe((res) => {
@@ -104,12 +105,12 @@ export class DashComponent implements OnInit {
     {
       this.ticketservice.selectedTicket._id=''
       this.ticketservice.selectedTicket.ticket_desc=''
-      this.ticketservice.selectedTicket.empname=this.AuthService.user.name
+      this.ticketservice.selectedTicket.name=this.AuthService.user.name
     
     }
     this.ticketservice.selectedTicket._id=''
     this.ticketservice.selectedTicket.ticket_desc=''
-    this.ticketservice.selectedTicket.empname=this.AuthService.user.name
+    this.ticketservice.selectedTicket.name=this.AuthService.user.name
  
    
   }

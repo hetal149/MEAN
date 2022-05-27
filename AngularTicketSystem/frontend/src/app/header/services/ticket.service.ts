@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Ticket } from './ticket.model';
+import { Ticket } from '../classes/ticket.model';
 import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root',

@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 const ticketSchema = mongoose.Schema({
     ticket_desc:{type:String},
     empid:{type:Number},
-    empname:{type:String},
+    name:{type:String},
     creator: String,
     createdAt: {
         type: String,

@@ -22,14 +22,14 @@ p {
     font-family:'system-ui'
 }
 
-
+/* 
 // .search-icon {
 //     position: absolute;
 //     z-index: 10;
 //     right: 59%;
 //     top: 20px;
 //     color: blue;
-// }
+// } */
 
 span {
     color: #fff;
@@ -48,19 +48,7 @@ span {
     color: #fff;
 
    
-    &-signIn:hover {
-        background-color: #7b0a0a;
-        color: #fff;
-        transition: .2s ease-out;
-        transform: scale(1.20);
-    }
-
-    &-signUp:hover {
-        background-color: #7b0a0a;
-        color: #fff;
-        transition: .2s ease-out;
-        transform: scale(1.20);
-    }
+  
 
 }
 

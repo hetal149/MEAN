@@ -5,14 +5,14 @@ import Ticket from "../models/tickets.js";
 
 import moment from "moment";
 export const addTicket = async (req, res) => {
-  const { empid, ticket_desc, creator, empname } = req.body;
+  const { empid, ticket_desc, creator, name } = req.body;
 
   const newTicket = new Ticket({
     ticket_desc: ticket_desc,
     empid: empid,
     creator: creator,
     createdAt: moment().format("MMMM Do YYYY, h:mm:ss a"),
-    empname: empname,
+    name: name,
     Date: moment().toISOString(),
   });
 
@@ -34,13 +34,13 @@ export const getTickets = async (req, res) => {
   } catch (error) {
     res.status(404).json({ message: error.message });
   }
-};
+}; 
 
 export const updateTicket = async (req, res) => {
   const ticket = req.body;
   const { id } = req.params;
 
-  const { empid, ticket_desc, empname, creator } = req.body;
+  const { empid, ticket_desc, name, creator } = req.body;
 
   if (!mongoose.Types.ObjectId.isValid(id))
     return res.status(404).send(`No ticket with id: ${id}`);
@@ -64,7 +64,7 @@ export const deleteTicket = async (req, res) => {
 
   const { _id } = req.body;
 
-  const { empid, ticket_desc, empname, creator } = req.body;
+  const { empid, ticket_desc, name, creator } = req.body;
 
   if (!mongoose.Types.ObjectId.isValid(_id))
     return res.status(404).send(`No ticket with id: ${_id}`);
@@ -91,7 +91,7 @@ export const getTicketsByName = async (req, res) => {
     const title = new RegExp(searchQuery, "i");
 
     const posts = await Ticket.find({
-      $or: [{ empname: new RegExp(".*" + searchQuery + ".*") }],
+      $or: [{ name: new RegExp(".*" + searchQuery + ".*") }],
     }).sort({ Date: -1 });
 
     res.json(posts);
