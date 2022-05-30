@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 import { DashComponent } from './dash/dash.component';
 import {SigninComponent} from './signin/signin.component';
 import {SignupComponent} from './signup/signup.component';
+import { DemoComponent } from './demo/demo.component';
 
 
 
@@ -17,6 +18,7 @@ import {SignupComponent} from './signup/signup.component';
     SignupComponent,
     SigninComponent,
     DashComponent,
+    DemoComponent,
  
     
    

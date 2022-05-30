@@ -5,15 +5,21 @@
     width: 600px;
     margin-left: 20px;
 }
+header{
+   
+    box-shadow:2px 5px 10px black,
 
+   
+}
 .navbar {
-   background-color:rgb(14, 7, 75);
+   background-color:rgb(6, 20, 69);
     height: 75px;
-    box-shadow: 13px 3px 33px rgb(0, 0, 0);
+    box-shadow: 18px 9px 33px rgb(0, 0, 0);
     color: '#fff',
    
     
 }
+
 
 p {
 
@@ -43,12 +49,11 @@ span {
     margin-bottom: 20px;
 }
 
-.btn {
+button {
     margin-right: 15px;
     color: #fff;
-
-   
-  
-
+}
+button:hover{
+    background-color: rgb(9, 1, 49);
 }
 

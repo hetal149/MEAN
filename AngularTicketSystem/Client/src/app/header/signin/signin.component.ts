@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../classes/user';
-import { UserService } from '../services/user.service';
+
+
 import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { LoginData } from '../classes/login-data';
@@ -15,8 +15,10 @@ export class SigninComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router,public flashMessagesService:  FlashMessagesService) {if(this.authService.loggedIn()){
 
   }
+ 
     
   {this.authService.isloggedin}}
+  
   
   ngOnInit(): void {
 
@@ -25,7 +27,7 @@ export class SigninComponent implements OnInit {
     const loginData = new LoginData(this.loginData.email, this.loginData.password);
     
     this.authService.authenticateUser(loginData).subscribe(res => {
-      console.log(res.message)
+     
       if(res.result) {
         this.authService.storeUserData(res.token, res.result);
         this.authService.isloggedin = true
@@ -37,7 +39,7 @@ export class SigninComponent implements OnInit {
         
       }
       if(res.message) {
-        console.log('first')
+      
         this.flashMessagesService.show(res.message, { cssClass: 'alert-danger', timeout: 4500});
         this.router.navigate(['login']);
       }

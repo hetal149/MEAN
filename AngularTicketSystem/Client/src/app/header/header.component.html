@@ -8,16 +8,17 @@
         </div>
         <!-- <button mat-button color="primary">Accent</button> -->
         <div *ngIf="this.AuthService.isloggedin === false; else issignedin"  >
-            <button  mdbBtn type="button" color="pink"  rounded="true" class="waves-light" mdbWavesEffect routerLink="login" >Sign In</button>
             
-            <button  mdbBtn type="button" color="pink"  rounded="true" class="waves-light" mdbWavesEffect routerLink="register" >Sign Up</button>
+            <button mat-button type="button" routerLink="login" >Sign In</button>
+            
+            <button  mat-button type="button"  routerLink="register" >Sign Up</button>
         </div>
 
         <ng-template #issignedin>
             <div class="align-item-center d-flex">
-                <span>{{AuthService.user.name}}</span>
+                <span>{{AuthService.user.name}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
              
-                <button mdbBtn type="button" color="danger"  rounded="true" class="waves-light" mdbWavesEffect (click)="onLogoutClick()">Sign Out</button>
+                <button class="out" type="button" mat-button (click)="onLogoutClick()">Sign Out</button>
             </div>
         </ng-template>
 

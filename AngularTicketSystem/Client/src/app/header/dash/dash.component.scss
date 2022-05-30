@@ -1,7 +1,13 @@
 .example-container {
     position: relative;
   }
-  
+.full-width-table{
+  width: 100%;
+}
+.data-table{
+  width: 99%;
+  margin:5px auto ;
+}
   .example-table-container {
     position: relative;
     min-height: 200px;
@@ -9,13 +15,13 @@
     overflow: auto;
   }
   .tbuton{
-    margin-left: -20px;
+    margin-left: -10px;
   }
   table {
     width: 100%;
   }
   button{
-    border-radius: 40px;
+    
     size:30px;
    
 
@@ -24,10 +30,22 @@
   .btn{
     font-weight:bold;
     margin-top:20px;
-    background-color: rgb(10, 160, 10);
+    margin-bottom:20px;
+    margin-left:20px;
     color: white;
   }
- 
+  th{
+    
+    font-size:15px;
+    color: rgb(28, 28, 31);
+  }
+ .btn1{
+  background-color: rgb(193, 22, 150);
+  margin-top:20px;
+  margin-bottom:20px;
+  margin-left:20px;
+  color: white;
+ }
   
   .example-loading-shade {
     position: absolute;
@@ -46,7 +64,7 @@
     max-width: 360px;
     text-align: center;
   }
-  
+ 
   /* Column Widths */
   .mat-column-number,
   .mat-column-state {
@@ -82,7 +100,7 @@
     border: 1px solid rgb(194, 202, 238);
   }
   .page{
-    background: rgb(85, 111, 223);
+    background: rgb(109, 133, 243);
     color: #fff;
     -webkit-backdrop-filter: blur(9px);
     backdrop-filter: blur(9px);
@@ -95,10 +113,11 @@
     // margin-bottom: 10px;
     text-decoration: underline;
     
-    margin-left: 45%;
+    margin-left: 35%;
     /* box-shadow: inset 0px 0px 6px rgba(0,0,0); */
   }
  
+  
   .filter{
     font-style:bold;
     font-size: large;

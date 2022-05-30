@@ -6,109 +6,97 @@
           (ngSubmit)="onRegisterSubmit(); registerForm.reset()"
           #registerForm="ngForm"
         >
-        <h2>Register</h2>
-          <div class="form-group">
-            <label for="name" class="mb-2">Name:</label>
-            <input
-              type="text"
-              class="form-control mb-3"
-              placeholder="Enter your name"
-              id="name"
-              required
-              minlength="5"
-              [(ngModel)]="model.name"
-              name="name"
+        <h2>Sign Up</h2>
+         
+            <mat-form-field appearance="legacy">
+              <mat-icon matSuffix>person_outline</mat-icon>
+              <mat-label>Name</mat-label>
+              <input type="text" matInput placeholder="Enter a valid Name" id="name" required name="name"
               #name="ngModel"
-              aria-describedby="name"
-            />
-            
-           
-            <div
-              *ngIf="name.invalid && (name.dirty || name.touched)"
-              class="alert alert-danger"
-            >
-              <div *ngIf="name.errors?.['required']">Name is required.</div>
-              <div *ngIf="name.errors?.['minlength']">
-                Name must be at least 5 characters long.
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="username">Username:</label>
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Enter your Username"
-              id="username"
-              required
+              pattern="[A-Za-z ]{1,32}"
+              [(ngModel)]="model.name"
+             >
+              <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
              
-              [(ngModel)]="model.username"
-              name="username"
-              #username="ngModel"
-            />
-            <div
+            </mat-form-field> 
+           
+            <mat-error
+              *ngIf="name.invalid && (name.dirty || name.touched)">
+              
+              <mat-error *ngIf="name.errors?.['pattern']">
+                Name must be contain only characters.
+              </mat-error>
+              <mat-error *ngIf="name.errors?.['required']">Name is required.</mat-error>
+            
+            </mat-error>
+          
+          <mat-form-field appearance="legacy">
+            <mat-icon matSuffix>person</mat-icon>
+            <mat-label>Username</mat-label>
+            <input type="username" matInput placeholder="Enter a valid Username" id="username" required name="username"
+            #username="ngModel"
+            minlength="5"
+            [(ngModel)]="model.username">
+            <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+           
+          </mat-form-field> 
+            <mat-error
               *ngIf="username.invalid && (username.dirty || username.touched)"
-              class="alert alert-danger"
+           
             >
-              <div *ngIf="username.errors?.['required']">Username is required.</div>
-              <!-- <div *ngIf="username.errors?.['minlength']">
-                Phone must be at least 10 characters long.
-              </div> -->
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="email">Email:</label>
-            <input
-              type="email"
-              class="form-control"
-              placeholder="Enter your email address"
-              id="email"
-              required
-              email
-              [(ngModel)]="model.email"
-              name="email"
+              <mat-error *ngIf="username.errors?.['required']">Username is required.</mat-error>
+              <mat-error *ngIf="username.errors?.['minlength']">
+                Username must be at least 5 characters long.
+              </mat-error>
+            </mat-error>
+  
+         
+            <mat-form-field appearance="legacy">
+              <mat-icon matSuffix>email</mat-icon>
+              <mat-label>Email</mat-label>
+              <input type="email" matInput placeholder="Enter a valid Email" id="email" required name="email"
               #email="ngModel"
-            />
-            <div
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+              [(ngModel)]="model.email">
+              <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+             
+            </mat-form-field> 
+            <mat-error
               *ngIf="email.invalid && (email.dirty || email.touched)"
-              class="alert alert-danger"
+             
             >
-              <div *ngIf="email.errors?.['required']">Email address is required.</div>
-              <div *ngIf="email.errors?.['email']">
-                It is not a valid email address format.
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="password">Password:</label>
-            <input
-              type="password"
-              class="form-control"
-              placeholder="Enter your password"
-              id="password"
-              required
-              pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
-              name="password"
-              #password="ngModel"
-              [(ngModel)]="model.password"
-            />
-            <div
-              *ngIf="password.invalid && (password.dirty || password.touched)"
-              class="alert alert-danger"
-            >
-              <div *ngIf="password.errors?.['required']">Password is required.</div>
-              <div *ngIf="password.errors?.['pattern']">
-                Password shall contain an uppercase, a lowercase and one numerical
-                or special characters. Length must be minimum 8 characters.
-              </div>
-            </div>
-          </div>
+              <mat-error *ngIf="email.errors?.['required']">Email address is required.</mat-error>
+              <mat-error *ngIf="email.errors?.['email']">
+                It is not a valid email.
+              </mat-error>
+            </mat-error>
+       
+          <mat-form-field appearance="legacy">
+            <mat-icon matSuffix>key</mat-icon>
+            <mat-label>Password</mat-label>
+            <input type="password" matInput placeholder="Enter Password" id="password" required name="password"
+            #password="ngModel"
+            pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+            [(ngModel)]="model.password">
+            <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+           
+          </mat-form-field> 
+          <mat-error
+          *ngIf="password.invalid && (password.dirty || password.touched)"
+       
+        >
+          <mat-error *ngIf="password.errors?.['required']">Password is required.</mat-error>
+          <mat-error *ngIf="password.errors?.['pattern']">
+            Password shall contain an uppercase, a lowercase and one numerical
+            or special characters. Length must be minimum 8 characters.
+          </mat-error>
+        </mat-error>
           <button
             type="submit"
             class="btn"
             [disabled]="!registerForm.form.valid"
-          >
-            Submit
+          ><mdb-icon fas icon="user-plus"></mdb-icon>
+            SignUp
           </button>
         </form>
       </div>

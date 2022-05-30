@@ -1,18 +1,12 @@
 
 <div class="mat-elevation-z8" >
-    <button
-      type="button"
-      class="btn"
-      mdbBtn
-      
-      rounded="true"
-      data-toggle="modal"
-      data-target="#basicExample"
-      (click)="frame.show()"
-      mdbWavesEffect
-    >
+  <button mat-raised-button color="primary"  data-toggle="modal"
+  data-target="#basicExample" class="btn1"
+  (click)="frame.show()"><mat-icon> add </mat-icon>
       Add Ticket
     </button>
+    
+
     <div
       mdbModal
       #frame="mdbModal"
@@ -35,7 +29,7 @@
               (ngSubmit)="onSubmit(ticketform);frame.hide()"
             >
             
-              <h3 style="text-align:center">Add Ticket</h3>
+              <h3 style="text-align:center">Add Ticket</h3><hr/>
               <input
                 type="hidden"
                 name="_id"
@@ -68,8 +62,9 @@
                   placeholder="Ticket_desc"
                 ></textarea>
               </div>
-              <button type="submit" mdbBtn color="success" size="sm" outline="true" cmdbWavesEffect class="sub">Submit</button>
-              <button (click)="frame.hide();onClose()" mdbBtn size="sm" type="button" color="danger" outline="true" cmdbWavesEffect>
+              <button mat-button type="submit" style="color:rgb(18, 164, 18)">Submit</button>
+              
+              <button (click)="frame.hide();onClose()" mat-button type="button" style="color:red">
                 Close
               </button>
             </form>
@@ -77,18 +72,24 @@
         </div>
       </div>
     </div>
-    <div class="mat-elevation-z8">
+
+    <mat-form-field class="paginator"  appearance="standard">
+     
+       <p>
+      <input 
+        matInput
+        (keyup)="applyFilter($event)"
+        placeholder="Search here"
+        #input
+      />
+     
+      <!-- <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search"
+        mdbInput> -->
+    </mat-form-field>
+    <div class="mat-elevation-z8 data-table">
         <!-- <mat-label class="filter">Filter</mat-label>  -->
-      <mat-form-field class="paginator"  appearance="standard">
-    
-        <input 
-          matInput
-          (keyup)="applyFilter($event)"
-          placeholder="Search here"
-          #input
-        />
-      </mat-form-field>
-      <table class="bg" mat-table [dataSource]="dataSource" matSort>
+     
+      <table class="full-width-table" mat-table [dataSource]="dataSource" matSort>
     
         <ng-container  matColumnDef="ticket_desc">
           <th
@@ -117,6 +118,7 @@
           </th>
           <td mat-cell *matCellDef="let element">{{ element.name }}</td>
         </ng-container>
+        
         <ng-container matColumnDef="createdAt">
           <th
             mat-header-cell
@@ -147,34 +149,39 @@
             mat-sort-header
             sortActionDescription="Sort by empid"
           >
-            Resolved
+            Resolved At
           </th>
           <td mat-cell *matCellDef="let element">{{element.DeletedAt?moment(element.DeletedAt):null }}</td>
         </ng-container>
     
         <ng-container matColumnDef="Edit">
-          <th mat-header-cell *matHeaderCellDef>Edit</th>
+          <th mat-header-cell *matHeaderCellDef></th>
           <td mat-cell *matCellDef="let element">
             <button class="tbuton"
+            size="lg"
+            
             style="margin-right: 5px;align-items: left;"
             (click)="onEdit(element);frame.show()"
-              [disabled]="!(AuthService.user._id === element.creator) || element.Resolved"
-              mdbBtn color="success" outline="true" cmdbWavesEffect
-            >
+            mat-stroked-button color="primary"
+            [disabled]="!(AuthService.user._id === element.creator) || element.Resolved"
+            ><mat-icon> edit</mat-icon>
               Edit
             </button>
+            
+           
           </td>
         </ng-container>
     
         <ng-container matColumnDef="Delete">
-          <th mat-header-cell *matHeaderCellDef>Resolved</th>
+          <th mat-header-cell *matHeaderCellDef></th>
           <td mat-cell *matCellDef="let element">
             <button class="tbuton"
+            size="md"
               [disabled]="!(AuthService.user._id === element.creator) || element.Resolved"
               (click)="onDelete(element)"
-              mdbBtn color="danger" outline="true" cmdbWavesEffect
-            >
-              Resolved
+              mat-stroked-button color="warn"
+            ><mat-icon> check </mat-icon>
+              Resolve
             </button>
           </td>
         </ng-container>
@@ -184,10 +191,11 @@
       </table>
     
       <mat-paginator
-        
-        [pageSizeOptions]="[10]"
-        showFirstLastButtons
-        aria-label="Select page of periodic elements"
+        [length]="dataSource?.data?.length"
+        [pageSizeOptions]="[5,10,15]"
+        [pageIndex]="0"
+        [pageSize]="10"
+        aria-label="Select page"
       >
       </mat-paginator>
     </div>
