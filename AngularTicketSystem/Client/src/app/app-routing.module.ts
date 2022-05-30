@@ -4,7 +4,7 @@ import {DashComponent} from './header/dash/dash.component';
 import {HomeComponent} from './home/home.component'
 import { SigninComponent } from './header/signin/signin.component';
 import { SignupComponent } from './header/signup/signup.component';
-import { DemoComponent } from './header/demo/demo.component';
+
 
 const routes: Routes = [
   {path:'', redirectTo:'home',pathMatch:'full'},
@@ -12,10 +12,7 @@ const routes: Routes = [
   {path:'register', component:SignupComponent},
   {path:'login', component: SigninComponent},
   {path:'ticket', component: DashComponent},
-  {path:'demo', component: DemoComponent},
-  
- 
-  
+
 ];
 
 @NgModule({

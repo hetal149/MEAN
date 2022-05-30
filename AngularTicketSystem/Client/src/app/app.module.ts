@@ -15,13 +15,11 @@ import {DashComponent} from './header/dash/dash.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JwPaginationModule } from 'jw-angular-pagination';
 import {MatPaginatorModule} from '@angular/material/paginator';
-
 import {MatTableModule} from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import{MatSortModule} from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { DemoComponent } from './header/demo/demo.component';
 import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
 
 
@@ -32,16 +30,13 @@ import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/materi
     HomeComponent,
     SigninComponent,
     SignupComponent,
-    DashComponent,
-    DemoComponent
-   
+    DashComponent   
     
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
     FormsModule,
-    
     AppRoutingModule,
     JwPaginationModule,
     MDBBootstrapModule.forRoot(),
