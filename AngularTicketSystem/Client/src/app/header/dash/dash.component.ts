@@ -30,7 +30,7 @@ export class DashComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
  
-
+      
   constructor(
     public ticketservice: TicketService,
     public AuthService: AuthService,

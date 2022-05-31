@@ -4,6 +4,7 @@ import {DashComponent} from './header/dash/dash.component';
 import {HomeComponent} from './home/home.component'
 import { SigninComponent } from './header/signin/signin.component';
 import { SignupComponent } from './header/signup/signup.component';
+import { AuthGuardService } from './header/services/auth-guard.service';
 
 
 const routes: Routes = [
@@ -11,7 +12,7 @@ const routes: Routes = [
   {path:'home', component: HomeComponent},
   {path:'register', component:SignupComponent},
   {path:'login', component: SigninComponent},
-  {path:'ticket', component: DashComponent},
+  {path:'ticket', component: DashComponent,canActivate:[AuthGuardService]},
 
 ];
 
